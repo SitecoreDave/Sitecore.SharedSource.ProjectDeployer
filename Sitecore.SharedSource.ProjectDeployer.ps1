@@ -80,7 +80,7 @@ if ($audit -eq 1 -and $auditPath.Length -eq 0 -and $projectPath.Length -ne 0) {
 	$auditPath = ($projectPath.Substring(0, $projectPath.LastIndexOf("\"))) + "\builds"
 	message "auditPath:$auditPath"
 
-	$cmd = "$scriptlocation" + "deploy.ps1"
+	$cmd = "$scriptlocation" + $MyInvocation.MyCommand.Name
 	message "cmd:$cmd"
 
 	if(Test-Path $auditPath) {
